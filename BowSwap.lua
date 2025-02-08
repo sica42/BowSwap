@@ -11,9 +11,11 @@ function BowSwap.Equip(args)
     end
 end
 
-function BowSwap.Unequip(args)
-    BowSwap.stored = true
+function BowSwap.Unequip(args)    
     local itemLink = GetInventoryItemLink("player", 18)
+    if not itemLink then return end
+
+    BowSwap.stored = true
     BowSwap.bow = BowSwap.GetItemNameFromLink( itemLink )
     
     for b=0,4 do 
@@ -49,10 +51,16 @@ function BowSwap.Alert(msg)
     messageText:SetText(msg)
     messageText:SetTextColor(1, 0, 0, 1)
 
-    local elapsed = 0    
+    local elapsed = 0
+    local visibleDuration = 0.8
+    local fadeDuration = 0.6
+
     messageFrame:SetScript("OnUpdate", function(self, delta)
-        elapsed = elapsed + arg1
-        if elapsed >= 2 then
+        elapsed = elapsed + arg1            
+        if elapsed < (visibleDuration + fadeDuration) then
+            local alpha = 1 - ((elapsed - visibleDuration) / fadeDuration)
+            messageText:SetTextColor(1, 0, 0, alpha) 
+        else
             messageText:SetText("")
             messageFrame:SetScript("OnUpdate", nil)
         end
