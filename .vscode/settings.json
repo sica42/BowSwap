@@ -1,0 +1,17 @@
+{
+    "Lua.diagnostics.globals": [
+        "PickupContainerItem",
+        "PickupInventoryItem",
+        "GetInventoryItemLink",
+        "DEFAULT_CHAT_FRAME",
+        "GetItemInfo",
+        "CreateFrame",
+        "arg1",
+        "UIParent",
+        "SlashCmdList",
+        "event",
+        "GetBagName",
+        "GetContainerNumSlots",
+        "GetContainerItemLink"
+    ]
+}

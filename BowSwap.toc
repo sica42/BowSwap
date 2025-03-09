@@ -2,5 +2,5 @@
 ## Title: BowSwap
 ## Author: Sica
 ## Notes: Add slash command to equip/unequip bow
-## Version: 0.3
+## Version: 0.4
 BowSwap.lua
